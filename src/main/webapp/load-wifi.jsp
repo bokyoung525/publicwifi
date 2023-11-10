@@ -1,7 +1,12 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import = "Wifi.WifiDAO" %>
+
+
+<%@ page import = "Wifi.WifiLoad" %>
+
 <%@ page import = "java.io.PrintWriter" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,15 +18,13 @@
 </style>
 <body>
 	<%
-	WifiDAO wifiDAO = new WifiDAO();
+		WifiLoad wl = new WifiLoad();
 	
-	int result = wifiDAO.write()
-	
-	
+		int total = wl.AddWifi();
 	%>
 	
 	<div style="text-align: center;">
-		<h1>어쩌고개의 WIFI 정보를 정상적으로 저장하였습니다.</h1>
+		<h1><%=total %>개의 WIFI 정보를 정상적으로 저장하였습니다.</h1>
     	<a href="index.jsp">홈으로 가기</a>
 	</div>
 </body>

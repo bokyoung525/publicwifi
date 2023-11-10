@@ -12,7 +12,6 @@ import Wifi.Wifi;
 import Wifi.WifiDAO;
 
 public class XmlParsing {
-
     // tag값의 정보를 가져오는 메소드
 	private static String getTagValue(String tag, Element eElement) {
 	    NodeList nlList = eElement.getElementsByTagName(tag).item(0).getChildNodes();
@@ -21,15 +20,18 @@ public class XmlParsing {
 	        return null;
 	    return nValue.getNodeValue();
 	}
+
+	private int listTotalCount;
 	
-	public static int getListTotalCount(int listTotalCount) {
+	public int getListTotalCount() {
 		return listTotalCount;
 	}
+	
+	public void setListTotalCount(int listTotalCount) {
+		this.listTotalCount = listTotalCount;
+	}
 
-	public static void main(String[] args) {
-		int listTotalCount = 0;
-		
-		
+	public static void main(String[] arg) {
 		
 		try {
 			String url = "http://openapi.seoul.go.kr:8088/44434a53636c656538304643574352/xml/TbPublicWifiInfo/1/1/";
@@ -46,7 +48,7 @@ public class XmlParsing {
             if (listTotalCountNode.getNodeType() == Node.ELEMENT_NODE) {
                 Element listTotalCountElement = (Element) listTotalCountNode;
                 String listTotalCountValue = listTotalCountElement.getTextContent();
-                listTotalCount = Integer.parseInt(listTotalCountValue);
+//                setListTotalCount(Integer.parseInt(listTotalCountValue));
             } else {	
                 System.out.println("error");
             }
@@ -54,20 +56,21 @@ public class XmlParsing {
             e.printStackTrace();
         }
 		
+		
 		WifiDAO wifiDAO = new WifiDAO();
 		
-		
 		try{
-			for (int i = 1; i <= listTotalCount; i += 1000){
+			for (int i = 1; i <= 23488; i += 1000){
 				// parsing할 url 지정(API 키 포함해서)
 				String url = "http://openapi.seoul.go.kr:8088/44434a53636c656538304643574352/xml/TbPublicWifiInfo/"
-							+ i + "/" + Math.min(i + 999,  listTotalCount) + "/";
+							+ i + "/" + Math.min(i + 999,  23488) + "/";
 				
 				DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		        DocumentBuilder builder = factory.newDocumentBuilder();
 		        Document doc = builder.parse(url);
 				
 				doc.getDocumentElement().normalize();
+				
 				
 				// 파싱할 tag
 				NodeList nList = doc.getElementsByTagName("row");
@@ -92,8 +95,8 @@ public class XmlParsing {
 						wifi.setX_SWIFI_CNSTC_YEAR(getTagValue("X_SWIFI_CNSTC_YEAR", eElement));
 						wifi.setX_SWIFI_INOUT_DOOR(getTagValue("X_SWIFI_INOUT_DOOR", eElement));
 						wifi.setX_SWIFI_REMARS3(getTagValue("X_SWIFI_REMARS3", eElement));
-						wifi.setLAT(getTagValue("LAT", eElement));
-						wifi.setLNT(getTagValue("LNT", eElement));
+//						wifi.setLAT(getTagValue("LAT", eElement));
+//						wifi.setLNT(getTagValue("LNT", eElement));
 						wifi.setWORK_DTTM(getTagValue("WORK_DTTM", eElement));
 						
 						wifiDAO.registerWifi(wifi);
@@ -105,6 +108,6 @@ public class XmlParsing {
 		} catch (Exception e){	
 			e.printStackTrace();
 		}	// try~catch end
-	}	// main end
+	}
 }	// class end
 

@@ -1,6 +1,7 @@
 package Wifi;
 
 public class Wifi {
+	private double DISTANCE;
 	private String X_SWIFI_MGR_NO;
 	private String X_SWIFI_WRDOFC;
 	private String X_SWIFI_MAIN_NM;
@@ -14,10 +15,16 @@ public class Wifi {
 	private String X_SWIFI_CNSTC_YEAR;
 	private String X_SWIFI_INOUT_DOOR;
 	private String X_SWIFI_REMARS3;
-	private String LAT;
-	private String LNT;
+	private double LAT;
+	private double LNT;
 	private String WORK_DTTM;
 	
+	public double getDISTANCE() {
+		return DISTANCE;
+	}
+	public void setDISTANCE(double dISTANCE) {
+		DISTANCE = dISTANCE;
+	}
 	public String getX_SWIFI_MGR_NO() {
 		return X_SWIFI_MGR_NO;
 	}
@@ -96,16 +103,16 @@ public class Wifi {
 	public void setX_SWIFI_REMARS3(String x_SWIFI_REMARS3) {
 		X_SWIFI_REMARS3 = x_SWIFI_REMARS3;
 	}
-	public String getLAT() {
+	public double getLAT() {
 		return LAT;
 	}
-	public void setLAT(String lAT) {
+	public void setLAT(double lAT) {
 		LAT = lAT;
 	}
-	public String getLNT() {
+	public double getLNT() {
 		return LNT;
 	}
-	public void setLNT(String lNT) {
+	public void setLNT(double lNT) {
 		LNT = lNT;
 	}
 	public String getWORK_DTTM() {
