@@ -17,7 +17,7 @@ tr:hover {background-color: gray;}
 th { background-color: #04AA6D; color: white; text-align: center}
 </style>
 <body>
-	<h1>위치 히스토리 목록</h1>
+	<h1>위치 히스토리 삭제</h1>
 	<a href="index.jsp">홈</a> |
 	<a href="history.jsp">위치 히스토리 목록</a> |
 	<a href="load-wifi.jsp">Open API 와이파이 정보 가져오기</a> |
@@ -37,6 +37,10 @@ th { background-color: #04AA6D; color: white; text-align: center}
 	<form name="location" action="history-delete-submit.jsp" method ="post">
 		<table>
 			<tr>
+				<th>ID</th>
+				<td><input type="text" name="ID" value="<%=ID%>" readonly="true"></td>
+			</tr>
+			<tr>
 				<th>위도 (LAT)</th>
 				<td><input type="text" name="latitude" value="<%=latitude%>" readonly="true"></td>
 			</tr>
@@ -45,15 +49,9 @@ th { background-color: #04AA6D; color: white; text-align: center}
 				<td><input type="text" name="longitude" value="<%=longitude%>" readonly="true"></td>
 			</tr>
 			<tr>
-				<th>ID</th>
-				<td><input type="text" name="ID" value="<%=ID%>" readonly="true"></td>
-			</tr>
-			<tr>
 				<td colspan="2"; style=text-align:center;><a href="history.jsp">돌아가기</a> | <button type="submit">삭제</button></td>
 			</tr>
 		</table>
 	</form>
-	
-	
 </body>
 </html>

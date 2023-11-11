@@ -19,7 +19,7 @@
 		if (result == -1) {    // 데이터베이스 오류가 발생했을 경우
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
-			script.println("alert('글 삭제에 실패하였습니다.')");
+			script.println("alert('위치 히스토리 정보 삭제에 실패하였습니다.')");
 			script.println("history.back()");
 			script.println("</script>");
 		} else {    // 정상처리 되었을 경우 게시판메인화면(bbs.jsp)로 이동

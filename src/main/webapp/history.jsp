@@ -51,8 +51,8 @@ th { background-color: #04AA6D; color: white; text-align: center}
 				<td><%=list.get(i).getLAT() %></td>
 				<td><%=list.get(i).getLNT() %></td>
 				<td><%=list.get(i).getDATE() %></td>
-				<td><a href="history-delete.jsp?ID=<%=list.get(i).getID() %>">삭제</a></button>
-			</td>
+				<td><a href="history-delete.jsp?ID=<%=list.get(i).getID() %>">삭제</a></td>
+			</tr>
 	<%
 		}
 	%>
