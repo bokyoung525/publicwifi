@@ -20,7 +20,7 @@ th { background-color: #04AA6D; color: white; text-align: center}
 </style>
 
 <body>
-	<h1>북마크 그룹</h1>
+	<h1>북마크 그룹 목록</h1>
 	<a href="index.jsp">홈</a> |
 	<a href="history.jsp">위치 히스토리 목록</a> |
 	<a href="load-wifi.jsp">Open API 와이파이 정보 가져오기</a> |

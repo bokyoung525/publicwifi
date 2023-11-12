@@ -121,4 +121,41 @@ public class WifiDAO {
         }
         return list; // 리스트 출력
     }
+	
+	public Wifi getWifi(String X_SWIFI_MGR_NO) {
+		String SQL = "SELECT * FROM WIFI WHERE X_SWIFI_MGR_NO = ?";
+		
+		Wifi wifi = new Wifi();
+		
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, X_SWIFI_MGR_NO);
+			
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				wifi.setX_SWIFI_MGR_NO(rs.getString(1));
+				wifi.setX_SWIFI_WRDOFC(rs.getString(2));
+				wifi.setX_SWIFI_MAIN_NM(rs.getString(3));
+				wifi.setX_SWIFI_ADRES1(rs.getString(4));
+				wifi.setX_SWIFI_ADRES2(rs.getString(5));
+				wifi.setX_SWIFI_INSTL_FLOOR(rs.getString(6));
+				wifi.setX_SWIFI_INSTL_TY(rs.getString(7));
+				wifi.setX_SWIFI_INSTL_MBY(rs.getString(8));
+				wifi.setX_SWIFI_SVC_SE(rs.getString(9));
+				wifi.setX_SWIFI_CMCWR(rs.getString(10));
+				wifi.setX_SWIFI_CNSTC_YEAR(rs.getString(11));
+				wifi.setX_SWIFI_INOUT_DOOR(rs.getString(12));
+				wifi.setX_SWIFI_REMARS3(rs.getString(13));
+				wifi.setLAT(rs.getDouble(14));
+				wifi.setLNT(rs.getDouble(15));
+				wifi.setWORK_DTTM(rs.getString(16));
+            }
+			pstmt.close();
+			conn.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return wifi;
+	}
 }

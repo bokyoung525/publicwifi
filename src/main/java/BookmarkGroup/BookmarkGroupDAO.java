@@ -101,7 +101,7 @@ public class BookmarkGroupDAO {
     }
 	
 	public BookmarkGroup getBookmarkGroup(int ID) {
-		String SQL = "SELECT BOOKMARK_NAME, ORDERINDEX FROM BOOKMARK_GROUP WHERE ID = ?";
+		String SQL = "SELECT * FROM BOOKMARK_GROUP WHERE ID = ?";
 		
 		BookmarkGroup bookmarkgroup = new BookmarkGroup();
 		
@@ -112,8 +112,11 @@ public class BookmarkGroupDAO {
 			rs = pstmt.executeQuery();
 			
 			if (rs.next()) {
-				bookmarkgroup.setBOOKMARK_NAME(rs.getString(1));
-				bookmarkgroup.setORDERINDEX(rs.getInt(2));
+				bookmarkgroup.setID(rs.getInt(1));
+				bookmarkgroup.setBOOKMARK_NAME(rs.getString(2));
+				bookmarkgroup.setORDERINDEX(rs.getInt(3));
+				bookmarkgroup.setREGI_DATE(rs.getString(4));
+				bookmarkgroup.setUPDATE_DATE(rs.getString(5));
             }
 			pstmt.close();
 			conn.close();
