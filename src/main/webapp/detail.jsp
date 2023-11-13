@@ -15,11 +15,11 @@
 </head>
 
 <style>
-table { border-collapse: collapse; width: 100%;}
-th, td { border: solid 1px lightgray; padding: 10px;}
-tr:nth-child(even) { background-color: #f2f2f2;}
-tr:hover {background-color: gray;}
-th { background-color: #04AA6D; color: white; text-align: center}
+table { border-collapse: collapse; width: 100%; }
+th, td { border: solid 1px lightgray; padding: 10px; }
+tr:nth-child(even) { background-color: #f2f2f2; }
+tr:hover { background-color: gray; }
+th { background-color: #04AA6D; color: white; text-align: center; }
 </style>
 
 <body>
@@ -39,14 +39,14 @@ th { background-color: #04AA6D; color: white; text-align: center}
 		ArrayList<BookmarkGroup> list = bookmarkgroupDAO.getBookmarkGroupList();
 	%>
 	
-	<form name="boomarkgroup" action="bookmark-add-submit.jsp" method="get">
+	<form name="boomarkgroup" action="bookmark-add-submit.jsp" method="get" accept-charset="utf-8">
 		<input type="hidden" name="X_SWIFI_MGR_NO" value=<%=X_SWIFI_MGR_NO %> />
 		<select name="bookmarkgroup" size="1">
 			<option value="">북마크 그룹 이름 선택</option>
 	<% 
 			for (int i = 0; i < list.size(); i++) { 
 	%>
-			<option value="<%=list.get(i).getID()%>"><%=list.get(i).getBOOKMARK_NAME()%></option>
+			<option value="<%=list.get(i).getID() %>"><%=list.get(i).getBOOKMARK_NAME() %></option>
 	<%
 			}
 	%>
@@ -55,14 +55,12 @@ th { background-color: #04AA6D; color: white; text-align: center}
 	</form>
 	
 	<%
-		
 		WifiDAO wifiDAO = new WifiDAO();
 		
 		Wifi wifi = new Wifi();
 		
 		wifi = wifiDAO.getWifi(X_SWIFI_MGR_NO);
 	%>
-	
 	<br>
 	<table>
 			<tr>
@@ -133,6 +131,5 @@ th { background-color: #04AA6D; color: white; text-align: center}
 				<td colspan="2"; style=text-align:center;><a href="index.jsp">돌아가기</a></td>
 			</tr>
 	</table>
-	
 </body>
 </html>

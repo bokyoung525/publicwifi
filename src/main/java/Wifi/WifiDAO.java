@@ -80,7 +80,7 @@ public class WifiDAO {
 	
 	public ArrayList<Wifi> getWifiList(Double latitude, Double longitude) {
         String SQL = "SELECT 6371*acos(cos(radians(WIFI.LAT))*cos(radians(?))*cos(radians(?)-radians(WIFI.LNT))+sin(radians(WIFI.LAT))*sin(radians(?))) AS distance, * "
-        		+ "FROM WIFI ORDER BY distance LIMIT 20";
+        		+ "FROM WIFI ORDER BY distance LIMIT 20";	//거리 계산으로 거리까지 함께 출력
 
         ArrayList<Wifi> list = new ArrayList<Wifi>();
 

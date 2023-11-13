@@ -23,18 +23,18 @@ public class BookmarkGroupDAO {
 	}
 	
 	public int getNext() {
-        String SQL = "SELECT ID FROM BOOKMARK_GROUP ORDER BY ID DESC"; // bbsID를 새로 생성(+1)하기 위해, 가장 마지막 bbsID를 가져옴
+        String SQL = "SELECT ID FROM BOOKMARK_GROUP ORDER BY ID DESC"; // 가장 마지막 ID
         try {
-            PreparedStatement pstmt = conn.prepareStatement(SQL); // 연결되어 있는 객체를 이용해서 실행준비단계로 만들어 줌
+            PreparedStatement pstmt = conn.prepareStatement(SQL);
             rs = pstmt.executeQuery();
             if (rs.next()) {
-                return rs.getInt(1) + 1; // 나온값에 1을 해줘서 새로운 bbsID값을 반환
+                return rs.getInt(1) + 1; // 나온값에 +1
             }
             return 1; // 기존데이터가 없어 첫번째 게시물인경우
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return -1; // 데이터 오류발생 시
+        return -1; // 데이터 오류
     }
 	
 	public String getDate() {
@@ -144,12 +144,13 @@ public class BookmarkGroupDAO {
 	}
 	
 	public int updateBookmarkGroup(int ID, String BOOKMARK_NAME, int ORDERINDEX) {
-		String SQL = "UPDATE BOOKMARK_GROUP SET BOOKMARK_NAME = ?, ORDERINDEX = ? WHERE ID = ?";
+		String SQL = "UPDATE BOOKMARK_GROUP SET BOOKMARK_NAME = ?, ORDERINDEX = ?, UPDATE_DATE = ? WHERE ID = ?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
 			pstmt.setString(1, BOOKMARK_NAME);
 			pstmt.setInt(2, ORDERINDEX);
-			pstmt.setInt(3, ID);
+			pstmt.setString(3, getDate());
+			pstmt.setInt(4, ID);
 			
 			pstmt.executeUpdate();
 			

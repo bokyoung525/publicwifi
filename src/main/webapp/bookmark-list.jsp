@@ -7,6 +7,7 @@
 <%@ page import = "BookmarkGroup.BookmarkGroup" %>
 <%@ page import = "Wifi.WifiDAO" %>
 <%@ page import = "Wifi.Wifi" %>
+
 <%@ page import = "java.util.ArrayList" %>
 <!DOCTYPE html>
 <html>
@@ -16,11 +17,11 @@
 </head>
 
 <style>
-table { border-collapse: collapse; width: 100%;}
-th, td { border: solid 1px lightgray; padding: 10px;}
-tr:nth-child(even) { background-color: #f2f2f2;}
-tr:hover {background-color: gray;}
-th { background-color: #04AA6D; color: white; text-align: center}
+table { border-collapse: collapse; width: 100%; }
+th, td { border: solid 1px lightgray; padding: 10px; }
+tr:nth-child(even) { background-color: #f2f2f2; }
+tr:hover { background-color: gray; }
+th { background-color: #04AA6D; color: white; text-align: center; }
 </style>
 
 <body>
@@ -51,6 +52,7 @@ th { background-color: #04AA6D; color: white; text-align: center}
 			BookmarkGroupDAO bookmarkgroupDAO = new BookmarkGroupDAO();
 			BookmarkGroup bookmarkgroup = bookmarkgroupDAO.getBookmarkGroup(list.get(i).getID());
 	%>
+		<tbody>
 			<tr>
 				<td><%=bookmarkgroup.getID() %></td>
 				<td><%=bookmarkgroup.getBOOKMARK_NAME() %></td>
@@ -58,12 +60,14 @@ th { background-color: #04AA6D; color: white; text-align: center}
 			WifiDAO wifiDAO = new WifiDAO();
 			Wifi wifi = wifiDAO.getWifi(list.get(i).getX_SWIFI_MGR_NO());
 	%>
-				<td><a href="detail.jsp?X_SWIFI_MGR_NO=<%=wifi.getX_SWIFI_MGR_NO() %>"><%=wifi.getX_SWIFI_MAIN_NM()%></a></td>
+				<td><a href="detail.jsp?X_SWIFI_MGR_NO=<%=wifi.getX_SWIFI_MGR_NO() %>"><%=wifi.getX_SWIFI_MAIN_NM() %></a></td>
 				<td><%=list.get(i).getREGI_DATE() %></td>
-				<td><a href="bookmark-delete.jsp?ID=<%=bookmarkgroup.getID()%>&X_SWIFI_MGR_NO=<%=wifi.getX_SWIFI_MGR_NO()%>">삭제</a></td>
+				<td><a href="bookmark-delete.jsp?ID=<%=bookmarkgroup.getID() %>&X_SWIFI_MGR_NO=<%=wifi.getX_SWIFI_MGR_NO() %>">삭제</a></td>
 			</tr>
 	<%
 		}
 	%>
+		</tbody>
+	</table>
 </body>
 </html>

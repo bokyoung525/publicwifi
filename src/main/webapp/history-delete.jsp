@@ -9,13 +9,15 @@
 <meta charset="UTF-8">
 <title>와이파이 정보 구하기</title>
 </head>
+
 <style>
-table { border-collapse: collapse; width: 100%;}
-th, td { border: solid 1px lightgray; padding: 10px;}
-tr:nth-child(even) { background-color: #f2f2f2;}
-tr:hover {background-color: gray;}
-th { background-color: #04AA6D; color: white; text-align: center}
+table { border-collapse: collapse; width: 100%; }
+th, td { border: solid 1px lightgray; padding: 10px; }
+tr:nth-child(even) { background-color: #f2f2f2; }
+tr:hover { background-color: gray; }
+th { background-color: #04AA6D; color: white; text-align: center; }
 </style>
+
 <body>
 	<h1>위치 히스토리 삭제</h1>
 	<a href="index.jsp">홈</a> |
@@ -38,15 +40,15 @@ th { background-color: #04AA6D; color: white; text-align: center}
 		<table>
 			<tr>
 				<th>ID</th>
-				<td><input type="text" name="ID" value="<%=ID%>" readonly="true"></td>
+				<td><input type="text" name="ID" value="<%=ID %>" readonly="true"></td>
 			</tr>
 			<tr>
 				<th>위도 (LAT)</th>
-				<td><input type="text" name="latitude" value="<%=latitude%>" readonly="true"></td>
+				<td><input type="text" name="latitude" value="<%=latitude %>" readonly="true"></td>
 			</tr>
 			<tr>
 				<th>경도 (LNT)</th>
-				<td><input type="text" name="longitude" value="<%=longitude%>" readonly="true"></td>
+				<td><input type="text" name="longitude" value="<%=longitude %>" readonly="true"></td>
 			</tr>
 			<tr>
 				<td colspan="2"; style=text-align:center;><a href="history.jsp">돌아가기</a> | <button type="submit">삭제</button></td>

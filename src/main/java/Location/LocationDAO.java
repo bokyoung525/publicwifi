@@ -23,12 +23,12 @@ public class LocationDAO {
 	}
 	
 	public int getNext() {
-        String SQL = "SELECT ID FROM LOCATION ORDER BY ID DESC"; // bbsID를 새로 생성(+1)하기 위해, 가장 마지막 bbsID를 가져옴
+        String SQL = "SELECT ID FROM LOCATION ORDER BY ID DESC"; // 가장 마지막 ID
         try {
             PreparedStatement pstmt = conn.prepareStatement(SQL); // 연결되어 있는 객체를 이용해서 실행준비단계로 만들어 줌
             rs = pstmt.executeQuery();
             if (rs.next()) {
-                return rs.getInt(1) + 1; // 나온값에 1을 해줘서 새로운 bbsID값을 반환
+                return rs.getInt(1) + 1; // 나온값에 +1
             }
             return 1; // 기존데이터가 없어 첫번째 게시물인경우
         } catch (Exception e) {
@@ -40,7 +40,7 @@ public class LocationDAO {
 	public String getDate() {
         String SQL = "SELECT datetime('now', 'localtime')"; // 현재시간을 가져오는 SQL구문
         try {
-            PreparedStatement pstmt = conn.prepareStatement(SQL); // 연결되어 있는 객체를 이용해서 실행준비단계로 만들어 줌
+            PreparedStatement pstmt = conn.prepareStatement(SQL);
             rs = pstmt.executeQuery(); // 실행된 결과를 가져오도록 해줌
             if (rs.next()) {
                 return rs.getString(1); // 나온값을 반환해 주도록 해줌

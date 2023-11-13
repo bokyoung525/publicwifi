@@ -3,6 +3,7 @@
     
 <%@ page import = "Location.LocationDAO" %>
 <%@ page import = "Location.Location" %>
+
 <%@ page import = "java.util.ArrayList" %>
 <!DOCTYPE html>
 <html>
@@ -12,11 +13,11 @@
 </head>
 
 <style>
-table { border-collapse: collapse; width: 100%;}
-th, td { border: solid 1px lightgray; padding: 10px;}
-tr:nth-child(even) { background-color: #f2f2f2;}
-tr:hover {background-color: gray;}
-th { background-color: #04AA6D; color: white; text-align: center}
+table { border-collapse: collapse; width: 100%; }
+th, td { border: solid 1px lightgray; padding: 10px; }
+tr:nth-child(even) { background-color: #f2f2f2; }
+tr:hover { background-color: gray; }
+th { background-color: #04AA6D; color: white; text-align: center; }
 </style>
 
 <body>

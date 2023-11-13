@@ -15,11 +15,11 @@
 </head>
 
 <style>
-table { border-collapse: collapse; width: 100%;}
-th, td { border: solid 1px lightgray; padding: 10px;}
-tr:nth-child(even) { background-color: #f2f2f2;}
-tr:hover {background-color: gray;}
-th { background-color: #04AA6D; color: white; text-align: center}
+table { border-collapse: collapse; width: 100%; }
+th, td { border: solid 1px lightgray; padding: 10px; }
+tr:nth-child(even) { background-color: #f2f2f2; }
+tr:hover { background-color: gray; }
+th { background-color: #04AA6D; color: white; text-align: center; }
 </style>
 
 <body>
@@ -55,15 +55,15 @@ th { background-color: #04AA6D; color: white; text-align: center}
 		<table>
 			<tr>
 				<th>북마크 이름</th>
-				<td><input type="text" name="bookmarkgroupname" value="<%=bookmarkgroupname%>" readonly="true"></td>
+				<td><input type="text" name="bookmarkgroupname" value="<%=bookmarkgroupname %>" readonly="true"></td>
 			</tr>
 			<tr>
 				<th>와이파이명</th>
-				<td><input type="text" name="wifiname" value="<%=wifiname%>" readonly="true"></td>
+				<td><input type="text" name="wifiname" value="<%=wifiname %>" readonly="true"></td>
 			</tr>
 			<tr>
 				<th>등록일자</th>
-				<td><input type="text" name="regidate" value="<%=regidate%>" readonly="true"></td>
+				<td><input type="text" name="regidate" value="<%=regidate %>" readonly="true"></td>
 			</tr>
 			<tr>
 				<td colspan="2"; style=text-align:center;><a href="bookmark-list.jsp">돌아가기</a> | <button type="submit">삭제</button></td>

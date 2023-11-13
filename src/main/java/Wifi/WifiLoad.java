@@ -57,8 +57,7 @@ public class WifiLoad {
         int end = 0;
         int total = 0;
 
-        //TOTALCNT = TotalCnt();
-        TOTALCNT = 50;
+        TOTALCNT = TotalCnt();
         int pageEnd = TOTALCNT / 1000;
         int pageEndRemain = TOTALCNT % 1000;
         
@@ -133,7 +132,6 @@ public class WifiLoad {
 				wifi.setWORK_DTTM((String) tmp.get("WORK_DTTM"));
                 
                 wifiDAO.registerWifi(wifi);
-                //System.out.println((String) tmp.get("X_SWIFI_MGR_NO")); // 가져오고자 하는 인자를 작성하면 됨.
                 total++;
             }
             System.out.println(total);	// 1000개 단위로 잘 실행되고 있는지 콘솔에 진행숫자 표시

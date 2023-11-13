@@ -4,6 +4,7 @@
 <%@ page import = "Location.LocationDAO" %>
 <%@ page import = "Wifi.WifiDAO" %>
 <%@ page import = "Wifi.Wifi" %>
+
 <%@ page import = "java.util.ArrayList" %>
 <!DOCTYPE html>
 <html>
@@ -49,11 +50,11 @@
 </head>
 
 <style>
-table { border-collapse: collapse; width: 100%;}
-th, td { border: solid 1px lightgray; padding: 10px;}
-tr:nth-child(even) { background-color: #f2f2f2;}
-tr:hover {background-color: gray;}
-th { background-color: #04AA6D; color: white; text-align: center}
+table { border-collapse: collapse; width: 100%; }
+th, td { border: solid 1px lightgray; padding: 10px; }
+tr:nth-child(even) { background-color: #f2f2f2; }
+tr:hover { background-color: gray; }
+th { background-color: #04AA6D; color: white; text-align: center; }
 </style>
 
 <body>
@@ -97,18 +98,18 @@ th { background-color: #04AA6D; color: white; text-align: center}
 		</thead>
 		<tbody>
 	<%
-		if (request.getParameter("latitude") == null||request.getParameter("longitude") == null) {
+		if (request.getParameter("latitude") == null||request.getParameter("longitude") == null) {	//입력 전
 	%>		
 			<tr>
 				<td colspan = "17"; style = text-align:center;>위치 정보를 입력한 후에 조회해 주세요.</td>
 	<%			
-		} else if (request.getParameter("latitude").isEmpty()||request.getParameter("longitude").isEmpty()){
+		} else if (request.getParameter("latitude").isEmpty()||request.getParameter("longitude").isEmpty()){	//입력 오류
 	%>	
 			<tr>
 				<td colspan = "17"; style = text-align:center;>위치 정보를 입력한 후에 조회해 주세요.</td>
 			</tr>
 	<%	
-		} else {
+		} else {	//정상처리
 				Double lat = Double.parseDouble(request.getParameter("latitude"));
 				Double lnt = Double.parseDouble(request.getParameter("longitude"));
 				LocationDAO locationDAO = new LocationDAO();
@@ -122,23 +123,23 @@ th { background-color: #04AA6D; color: white; text-align: center}
 				for (int i = 0; i < list.size(); i++) {
 	%>
 			<tr>
-				<td><%=list.get(i).getDISTANCE()%></td>
-				<td><%=list.get(i).getX_SWIFI_MGR_NO()%></td>
-				<td><%=list.get(i).getX_SWIFI_WRDOFC()%></td>
-				<td><a href="detail.jsp?X_SWIFI_MGR_NO=<%=list.get(i).getX_SWIFI_MGR_NO() %>"><%=list.get(i).getX_SWIFI_MAIN_NM()%></a></td>
-				<td><%=list.get(i).getX_SWIFI_ADRES1()%></td>
-				<td><%=list.get(i).getX_SWIFI_ADRES2()%></td>
-				<td><%=list.get(i).getX_SWIFI_INSTL_FLOOR()%></td>
-				<td><%=list.get(i).getX_SWIFI_INSTL_TY()%></td>
-				<td><%=list.get(i).getX_SWIFI_INSTL_MBY()%></td>
-				<td><%=list.get(i).getX_SWIFI_SVC_SE()%></td>
-				<td><%=list.get(i).getX_SWIFI_CMCWR()%></td>
-				<td><%=list.get(i).getX_SWIFI_CNSTC_YEAR()%></td>
-				<td><%=list.get(i).getX_SWIFI_INOUT_DOOR()%></td>
-				<td><%=list.get(i).getX_SWIFI_REMARS3()%></td>
-				<td><%=list.get(i).getLAT()%></td>
-				<td><%=list.get(i).getLNT()%></td>
-				<td><%=list.get(i).getWORK_DTTM()%></td>
+				<td><%=list.get(i).getDISTANCE() %></td>
+				<td><%=list.get(i).getX_SWIFI_MGR_NO() %></td>
+				<td><%=list.get(i).getX_SWIFI_WRDOFC() %></td>
+				<td><a href="detail.jsp?X_SWIFI_MGR_NO=<%=list.get(i).getX_SWIFI_MGR_NO() %>"><%=list.get(i).getX_SWIFI_MAIN_NM() %></a></td>
+				<td><%=list.get(i).getX_SWIFI_ADRES1() %></td>
+				<td><%=list.get(i).getX_SWIFI_ADRES2() %></td>
+				<td><%=list.get(i).getX_SWIFI_INSTL_FLOOR() %></td>
+				<td><%=list.get(i).getX_SWIFI_INSTL_TY() %></td>
+				<td><%=list.get(i).getX_SWIFI_INSTL_MBY() %></td>
+				<td><%=list.get(i).getX_SWIFI_SVC_SE() %></td>
+				<td><%=list.get(i).getX_SWIFI_CMCWR() %></td>
+				<td><%=list.get(i).getX_SWIFI_CNSTC_YEAR() %></td>
+				<td><%=list.get(i).getX_SWIFI_INOUT_DOOR() %></td>
+				<td><%=list.get(i).getX_SWIFI_REMARS3() %></td>
+				<td><%=list.get(i).getLAT() %></td>
+				<td><%=list.get(i).getLNT() %></td>
+				<td><%=list.get(i).getWORK_DTTM() %></td>
 			</tr>
 	<%
 				}
@@ -146,8 +147,5 @@ th { background-color: #04AA6D; color: white; text-align: center}
 	%>
 		</tbody>
 	</table>
-	
-	
-	
 </body>
 </html>

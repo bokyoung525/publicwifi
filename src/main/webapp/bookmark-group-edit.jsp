@@ -11,11 +11,11 @@
 </head>
 
 <style>
-table { border-collapse: collapse; width: 100%;}
-th, td { border: solid 1px lightgray; padding: 10px;}
-tr:nth-child(even) { background-color: #f2f2f2;}
-tr:hover {background-color: gray;}
-th { background-color: #04AA6D; color: white; text-align: center}
+table { border-collapse: collapse; width: 100%; }
+th, td { border: solid 1px lightgray; padding: 10px; }
+tr:nth-child(even) { background-color: #f2f2f2; }
+tr:hover { background-color: gray; }
+th { background-color: #04AA6D; color: white; text-align: center; }
 </style>
 
 <body>
@@ -41,15 +41,15 @@ th { background-color: #04AA6D; color: white; text-align: center}
 		<table>
 			<tr>
 				<th>ID (변경불가)</th>
-				<td><input type="text" name="ID" value="<%=ID%>" readonly="true"></td>
+				<td><input type="text" name="ID" value="<%=ID %>" readonly="true"></td>
 			</tr>
 			<tr>
 				<th>북마크 이름</th>
-				<td><input type="text" name="name" value="<%=name%>"></td>
+				<td><input type="text" name="name" value="<%=name %>"></td>
 			</tr>
 			<tr>
 				<th>순서</th>
-				<td><input type="text" name="orderindex" value="<%=orderindex%>"></td>
+				<td><input type="text" name="orderindex" value="<%=orderindex %>"></td>
 			</tr>
 			<tr>
 				<td colspan="2"; style=text-align:center;><a href="bookmark-group.jsp">돌아가기</a> | <button type="submit">수정</button></td>
